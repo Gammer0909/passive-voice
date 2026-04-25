@@ -1,38 +1,181 @@
-.App {
-  text-align: center;
+ aside {
+  position: fixed;
+  z-index: 2;
+  height: 100vh;
+  width: 100%;
+  height: 100%;
+  max-width: 250px;
+  padding: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 2px solid var(--color-primary-light);
+  background: var(--color-surface);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.noselect {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;      /* IE 10 and IE 11 */
+  user-select: none;          /* Standard syntax for Chrome, Firefox, and Edge */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input[type="file"] {
+  display: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.upload-controls {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center ;
+  gap: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.upload-card {
+  background: var(--color-surface-2);
+  border: 2px solid var(--color-border);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.upload-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.upload-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0 0 4px;
+}
+
+.upload-hint {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.upload-card:hover {
+  border-color: var(--color-text-primary);
+  background: var(--color-surface-hover);
+}
+
+.upload-card:active {
+  transform: scale(0.98);
+}
+
+.upload-btn {
+  background: var(--color-primary, #066662);
+  color: var(--color-text-primary, #e6edf3);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 60%;
+
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.upload-btn:hover {
+  background: var(--color-primary-light, #3dd9c9);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(61, 217, 201, 0.15);
+}
+
+.upload-btn:active {
+  transform: translateY(0);
+}
+
+.upload-btn:disabled {
+  background: var(--color-border, #30363d);
+  color: var(--color-text-secondary, #8b949e);
+  cursor: not-allowed;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  padding-left: 10px;
+  margin-left: 272px; /* width of aside */
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.upload-hint-main {
+  padding: 10px;  
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.pages {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  gap: 15px; /* or whatever spacing you want */
+}
+
+.skeleton {
+  width: 8.5in;
+  height: 11in;
+  background: linear-gradient(90deg, #21262d 0%, #30363d 50%, #21262d 100%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.page {
+  width: 8.5in;
+  max-width: 8.5in;
+  max-height: 11in; 
+  flex-wrap: wrap;
+  height: 11in;
+  padding: 0 10px 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: var(--color-text-primary);
+  border: 1px solid #ccc;
+  background: white;
+  color: var(--color-background);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.sentence {
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sentence-fixed {
+  background: #3fb95050;
+}
+
+.has-issue {
+  background: #bf870050;
+}
+
+.sentence.has-issue:hover {
+  background: #1f6feb50;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    background-position: -200% 0;
   }
 }
