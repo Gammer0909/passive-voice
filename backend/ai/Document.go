@@ -44,7 +44,6 @@ func NewDocument(readFile *os.File) (*WordDocument, error) {
 	for _, paragraph := range wordDoc.Paragraphs {
 		sentences := ParagraphToSentences(paragraph)
 		for _, sentence := range sentences {
-			// w nesting for loopsx
 			wordDoc.Sentences = append(wordDoc.Sentences, sentence)
 		}
 	}
